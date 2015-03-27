@@ -18,27 +18,31 @@ void loop()
    switch (val) 
    { // If 1 was received
       case '0':         
-       Shot_one(); 
+       Shot_one();
+        break; 
       case '1':
       Shot_two();
+      break;
       case '2':
       Shot_three();
+      break;
+      default:
+      break;
    }
-   delay(500);
 }
 }
   int Shot_one(){
-    int i;
-  for (i = 0; i<5; i++)
- { 
    
-  digitalWrite(13, HIGH);   // turn the LED on (HIGH is the voltage level)
- }  
+  digitalWrite(13, HIGH);
+  delay(5000);
+  digitalWrite(13, LOW);
+    // turn the LED on (HIGH is the voltage level)
+  
  }
  
  int Shot_two(){
    int i;
-  for (i = 0; i<5; i++)
+  for (i = 0; i<2; i++)
   {
   digitalWrite(13, HIGH);   // turn the LED on (HIGH is the voltage level)
   delay(500);              // wait for a second
@@ -52,9 +56,9 @@ void loop()
   for (i = 0; i<5; i++)
   {
   digitalWrite(13, HIGH);   // turn the LED on (HIGH is the voltage level)
-  delay(5000);              // wait for a second
+  delay(500);              // wait for a second
   digitalWrite(13, LOW);    // turn the LED off by making the voltage LOW
-  //delay(500);
+  delay(500);
  }
  }
 
