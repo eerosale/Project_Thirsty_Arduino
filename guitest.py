@@ -17,7 +17,7 @@ directions = [NW, N, NE, W, '', E, SW, S, SE]
 
 canvas = Canvas(highlightthickness=0, height=height, width=width)
 canvas.master.title("Project Thirsty")
-
+canvas.configure(background='lemonchiffon')
 canvas.grid()
 
 class Arduino:
@@ -44,9 +44,9 @@ def ledWrite(i):
    print(i)
    arduino.writeLine(str(i))                    
    if enabled[i] == 1:
-      buttons[i].configure(bg = '#DD6600')      #Tkinter can take hexidecimal color codes, so you can customize your UI
+      buttons[i].configure(bg = 'dodgerblue')      #Tkinter can take hexidecimal color codes, so you can customize your UI
    else:
-      buttons[i].configure(bg = 'grey')
+      buttons[i].configure(bg = 'orange')
    buttons[i].update()
    enabled[i] = enabled[i] * -1
 

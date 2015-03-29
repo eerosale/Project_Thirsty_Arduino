@@ -2,7 +2,8 @@
  int val; // Data received from the serial port
  int ledPin = 13; // Set the pin to digital I/O 13
  int counter;
- int state;
+ int select_zero = 6; //this will be for the select wires of the MUX
+ int select_one = 7; 
  
  void count_me(){
    counter++;
@@ -10,9 +11,11 @@
 void setup() 
 {
   pinMode(ledPin, OUTPUT);
+  pinMode(select_zero, OUTPUT);
+  pinMode(select_one, OUTPUT);
  // pinMode(FLOWSENSORPIN, INPUT);
 //  digitalWrite(FLOWSENSORPIN, HIGH);
-  attachInterrupt(0, count_me, RISING);
+  attachInterrupt(0, count_me, RISING); //THIS IS WHERE THE OUTPUT OF THE MUX WILL GO, (or 1 flowmeter to digital pin #2)
   //initialize serial communications at a 9600 baud rate
 Serial.begin(9600);
 }
@@ -45,30 +48,28 @@ void loop()
   int Shot_one(){
    
   counter = 0;
-  
+  digitalWrite(6, LOW); //this is for select 0 and 1 from mux 
+  digitalWrite(7, LOW); //see above comment
  
   while(counter <5){
-    digitalWrite(13,HIGH);
+    digitalWrite(13,HIGH); //this will turn on the pump
     //Serial.print(counter);
   }
-  digitalWrite(13,LOW);
-  //digitalRead(FLOWSENSORPIN);
-  
-    // turn the LED on (HIGH is the voltage level)
+  digitalWrite(13,LOW); //this turns off the pump;
   
  }
- 
+ //following two functions are for LEDS blinking to test functionality of GUI buttons. 
  int Shot_two(){
  
    int i;
   for (i = 0; i<2; i++)
   {
   digitalWrite(13, HIGH);   // turn the LED on (HIGH is the voltage level)
-  delay(500);              // wait for a second
+  delay(500);              // wait for half a second
   digitalWrite(13, LOW);    // turn the LED off by making the voltage LOW
   delay(500);
  }
- }//delay(5000); // Wait 10 milliseconds for next reading
+ }
 
  int Shot_three(){
    int i;
