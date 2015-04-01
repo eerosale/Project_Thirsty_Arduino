@@ -5,9 +5,9 @@
 
 import  time, serial, random
 from Tkinter import *
-
-height = 600
-width = 800
+from PIL import ImageTk
+height = 650
+width = 900
 
 enabled = [1, 1, 1, 1, 1, 1, 1, 1, 1]   #This list cointains the state of each button: 1 = disabled, -1 = enabled
 
@@ -17,8 +17,11 @@ directions = [NW, N, NE, W, '', E, SW, S, SE]
 
 canvas = Canvas(highlightthickness=0, height=height, width=width)
 canvas.master.title("Project Thirsty")
-canvas.configure(background='lemonchiffon')
+canvas.configure(background='white')
 canvas.grid()
+canvas_id = canvas.create_text(10, 10, anchor="nw")
+image = ImageTk.PhotoImage(file = "C:/Python27/Photos/wood_background_grey_wallpaper_home.jpg")
+canvas.create_image(100,100, image = image)
 
 class Arduino:
     connection = None
@@ -44,19 +47,49 @@ def ledWrite(i):
    print(i)
    arduino.writeLine(str(i))                    
    if enabled[i] == 1:
-      buttons[i].configure(bg = 'dodgerblue')      #Tkinter can take hexidecimal color codes, so you can customize your UI
+      buttons[i].configure(bg = 'brown')      #Tkinter can take hexidecimal color codes, so you can customize your UI
    else:
-      buttons[i].configure(bg = 'orange')
+      buttons[i].configure(bg = 'forestgreen')
    buttons[i].update()
    enabled[i] = enabled[i] * -1
 
-for i in range(9):         #this creates all the buttons, so you don't need a line to create and grid each button
-   x = i
-   i = Button(height = 10, width = 20,  bg = 'grey', relief = FLAT, command = lambda arg=x: ledWrite(arg))    #'arg = x' may seem repetitive, but if it is not included,
+#for i in range(9): 
+        #this creates all the buttons, so you don't need a line to create and grid each button
+x = 0	
+i = Button(height = 8, width = 17,  bg = 'brown', relief = GROOVE, text = "1 Shot of Vodka", font=("Elephant"), command = lambda arg=x: ledWrite(arg))    #'arg = x' may seem repetitive, but if it is not included,
                                                                                                                #the buttons pass the final value of x to 'ledWrite' , which is 8
-   i.grid(column = 0, row = 0, columnspan = 3, rowspan = 3, sticky = directions[x])
-   i.number = x
-   buttons.append(i)
+i.grid(column = 0, row = 0, columnspan = 3, rowspan = 3, sticky = directions[x])
+i.number = x
+buttons.append(i)
+
+x = 1
+i = Button(height = 8, width = 17,  bg = 'brown', relief = GROOVE, text = "1 Shot of Whiskey", font=("Elephant"), command = lambda arg=x: ledWrite(arg))    #'arg = x' may seem repetitive, but if it is not included,
+                                                                                                               #the buttons pass the final value of x to 'ledWrite' , which is 8
+i.grid(column = 0, row = 0, columnspan = 3, rowspan = 3, sticky = directions[x])
+i.number = x
+buttons.append(i)
+
+x = 2
+i = Button(height = 8, width = 17,  bg = 'brown', relief = GROOVE, text = "1 Shot of Something", font=("Elephant"), command = lambda arg=x: ledWrite(arg))    #'arg = x' may seem repetitive, but if it is not included,
+                                                                                                               #the buttons pass the final value of x to 'ledWrite' , which is 8
+i.grid(column = 0, row = 0, columnspan = 3, rowspan = 3, sticky = directions[x])
+i.number = x
+buttons.append(i)
+
+x = 3
+i = Button(height = 8, width = 17, bg = 'brown', relief = GROOVE, text = "Gin & Tonic", font=("Elephant"), command = lambda arg=x: ledWrite(arg))    #'arg = x' may seem repetitive, but if it is not included,
+                                                                                                               #the buttons pass the final value of x to 'ledWrite' , which is 8
+i.grid(column = 0, row = 0, columnspan = 3, rowspan = 3, sticky = directions[x])
+i.number = x
+buttons.append(i)
+
+x = 8
+i = Button(height = 8, width = 17,  bg = 'lightslategrey', relief = GROOVE, text = "Calibration", font=("Elephant"), command = lambda arg=x: ledWrite(arg))    #'arg = x' may seem repetitive, but if it is not included,
+                                                                                                               #the buttons pass the final value of x to 'ledWrite' , which is 8
+i.grid(column = 0, row = 0, columnspan = 3, rowspan = 3, sticky = directions[x])
+
+i.number = x
+buttons.append(i)
 
 print '1'
 canvas.mainloop()

@@ -4,7 +4,7 @@
  int counter;
  int select_zero = 6; //this will be for the select wires of the MUX
  int select_one = 7; 
- 
+
  void count_me(){
    counter++;
  }
@@ -46,13 +46,15 @@ void loop()
   }
 }
   int Shot_one(){
-   
+  long dummy_count = 0;
   counter = 0;
   digitalWrite(6, LOW); //this is for select 0 and 1 from mux 
   digitalWrite(7, LOW); //see above comment
  
-  while(counter <5){
+  while(counter <13){
     digitalWrite(13,HIGH); //this will turn on the pump
+    dummy_count++;
+    if(dummy_count>1000000) break;
     //Serial.print(counter);
   }
   digitalWrite(13,LOW); //this turns off the pump;
@@ -64,22 +66,27 @@ void loop()
    int i;
   for (i = 0; i<2; i++)
   {
-  digitalWrite(13, HIGH);   // turn the LED on (HIGH is the voltage level)
+  digitalWrite(12, HIGH);   // turn the LED on (HIGH is the voltage level)
   delay(500);              // wait for half a second
-  digitalWrite(13, LOW);    // turn the LED off by making the voltage LOW
+  digitalWrite(12, LOW);    // turn the LED off by making the voltage LOW
   delay(500);
  }
  }
 
  int Shot_three(){
-   int i;
-  for (i = 0; i<5; i++)
-  {
-  digitalWrite(12, HIGH);   // turn the LED on (HIGH is the voltage level)
-  delay(500);              // wait for a second
-  digitalWrite(12, LOW);    // turn the LED off by making the voltage LOW
-  delay(500);
+  long dummy_count = 0;
+  counter = 0;
+  digitalWrite(6, LOW); //this is for select 0 and 1 from mux 
+  digitalWrite(7, LOW); //see above comment
+ 
+  while(counter <13){
+    digitalWrite(12,HIGH); //this will turn on the pump
+    dummy_count++;
+    if(dummy_count>1000000) break;
+    //Serial.print(counter);
+  }
+  digitalWrite(12,LOW); //this turns off the pump;
  }
- }
+ 
 
 
