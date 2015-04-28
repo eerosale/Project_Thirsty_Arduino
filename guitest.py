@@ -49,7 +49,7 @@ def ledWrite(i):
    if enabled[i] == 1:
       buttons[i].configure(bg = 'brown')      #Tkinter can take hexidecimal color codes, so you can customize your UI
    else:
-      buttons[i].configure(bg = 'forestgreen')
+      buttons[i].configure(bg = 'brown')
    buttons[i].update()
    enabled[i] = enabled[i] * -1
 
@@ -63,31 +63,58 @@ i.number = x
 buttons.append(i)
 
 x = 1
-i = Button(height = 8, width = 17,  bg = 'brown', relief = GROOVE, text = "1 Shot of Whiskey", font=("Elephant"), command = lambda arg=x: ledWrite(arg))    #'arg = x' may seem repetitive, but if it is not included,
+i = Button(height = 8, width = 17,  bg = 'brown', relief = GROOVE, text = "1 Shot of Tequila", font=("Elephant"), command = lambda arg=x: ledWrite(arg))    #'arg = x' may seem repetitive, but if it is not included,
                                                                                                                #the buttons pass the final value of x to 'ledWrite' , which is 8
 i.grid(column = 0, row = 0, columnspan = 3, rowspan = 3, sticky = directions[x])
 i.number = x
 buttons.append(i)
 
 x = 2
-i = Button(height = 8, width = 17,  bg = 'brown', relief = GROOVE, text = "1 Shot of Something", font=("Elephant"), command = lambda arg=x: ledWrite(arg))    #'arg = x' may seem repetitive, but if it is not included,
+i = Button(height = 8, width = 17,  bg = 'brown', relief = GROOVE, text = "1 Shot of OJ", font=("Elephant"), command = lambda arg=x: ledWrite(arg))    #'arg = x' may seem repetitive, but if it is not included,
                                                                                                                #the buttons pass the final value of x to 'ledWrite' , which is 8
 i.grid(column = 0, row = 0, columnspan = 3, rowspan = 3, sticky = directions[x])
 i.number = x
 buttons.append(i)
 
 x = 3
-i = Button(height = 8, width = 17, bg = 'brown', relief = GROOVE, text = "Gin & Tonic", font=("Elephant"), command = lambda arg=x: ledWrite(arg))    #'arg = x' may seem repetitive, but if it is not included,
+i = Button(height = 8, width = 17, bg = 'brown', relief = GROOVE, text = "Tequila Mockingbird", font=("Elephant"), command = lambda arg=x: ledWrite(arg))    #'arg = x' may seem repetitive, but if it is not included,
+                                                                                                               #the buttons pass the final value of x to 'ledWrite' , which is 8
+i.grid(column = 0, row = 0, columnspan = 3, rowspan = 3, sticky = directions[x])
+i.number = x
+buttons.append(i)
+
+x = 4
+i = Button(height = 8, width = 17,  bg = 'brown', relief = GROOVE, text = "Surprise Me", font=("Elephant"), command = lambda arg=x: ledWrite(arg))    #'arg = x' may seem repetitive, but if it is not included,
+                                                                                                               #the buttons pass the final value of x to 'ledWrite' , which is 8
+i.grid(column = 0, row = 0, columnspan = 3, rowspan = 3, sticky = directions[x])
+i.number = x
+buttons.append(i)
+
+x = 5
+i = Button(height = 8, width = 17,  bg = 'brown', relief = GROOVE, text = "The Atomic Bomb", font=("Elephant"), command = lambda arg=x: ledWrite(arg))    #'arg = x' may seem repetitive, but if it is not included,
+                                                                                                               #the buttons pass the final value of x to 'ledWrite' , which is 8
+i.grid(column = 0, row = 0, columnspan = 3, rowspan = 3, sticky = directions[x])
+i.number = x
+buttons.append(i)
+
+x = 6
+i = Button(height = 8, width = 17,  bg = 'brown', relief = GROOVE, text = "Screwdriver", font=("Elephant"), command = lambda arg=x: ledWrite(arg))    #'arg = x' may seem repetitive, but if it is not included,
+                                                                                                               #the buttons pass the final value of x to 'ledWrite' , which is 8
+i.grid(column = 0, row = 0, columnspan = 3, rowspan = 3, sticky = directions[x])
+i.number = x
+buttons.append(i)
+
+x = 7
+i = Button(height = 8, width = 17,  bg = 'brown', relief = GROOVE, text = "Calibration ON", font=("Elephant"), command = lambda arg=x: ledWrite(arg))    #'arg = x' may seem repetitive, but if it is not included,
                                                                                                                #the buttons pass the final value of x to 'ledWrite' , which is 8
 i.grid(column = 0, row = 0, columnspan = 3, rowspan = 3, sticky = directions[x])
 i.number = x
 buttons.append(i)
 
 x = 8
-i = Button(height = 8, width = 17,  bg = 'lightslategrey', relief = GROOVE, text = "Calibration", font=("Elephant"), command = lambda arg=x: ledWrite(arg))    #'arg = x' may seem repetitive, but if it is not included,
+i = Button(height = 8, width = 17,  bg = 'brown', relief = GROOVE, text = "Calibration OFF", font=("Elephant"), command = lambda arg=x: ledWrite(arg))    #'arg = x' may seem repetitive, but if it is not included,
                                                                                                                #the buttons pass the final value of x to 'ledWrite' , which is 8
 i.grid(column = 0, row = 0, columnspan = 3, rowspan = 3, sticky = directions[x])
-
 i.number = x
 buttons.append(i)
 
