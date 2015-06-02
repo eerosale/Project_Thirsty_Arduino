@@ -39,7 +39,7 @@ class Arduino:
             time.sleep(0.1)
 
 
-arduino = Arduino(4)       #This sets the arduino to serial port 2.  On PC's this will probably be COM3
+arduino = Arduino(6)       #This sets the arduino to serial port 2.  On PC's this will probably be COM3
                            # On macs this port will be something like  /dev/tty.usbmodem
 arduino.writeLine('!')     #The arduino program resets all the led's when it recieves '!' over serial
 
